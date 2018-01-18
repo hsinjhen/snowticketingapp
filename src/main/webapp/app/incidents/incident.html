@@ -1,0 +1,48 @@
+<div class="container-fluid">
+	<!-- BREADCRUMBS -->
+	<nav aria-label="breadcrumb" role="navigation">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#/incidents">Incidents</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Open Tickets</li>
+		</ol>
+	</nav>
+	<!-- END BREADCRUMBS -->
+	
+	<!-- CARD -->
+	<div class="card mb-3">
+		  <div class="card-header">
+		    <span class="fa fa-table"></span>
+           	Open Tickets
+		  </div>
+		  <div class="card-body">
+		  <!-- TABLE -->
+		    <div class="table-responsive">   
+			    <table id=incident-table class="table table-bordered" width="100%" cellspacing="0">
+				  <thead>
+					<tr>
+					  <th>Incident</th>
+					  <th>Domain</th>
+					  <th>Subject</th>
+					  <th>Description</th>
+					  </tr>
+				  </thead>
+				  <tbody>
+					<tr ng-repeat="incident in vm.incidents track by incident.inc_number">
+						<td><a ui-sref="incident-detail({id: incident.inc_number})">{{incident.inc_number}}</a></td>
+						<td>{{incident.category}}</td>
+						<td>{{incident.short_desc}}</td>
+						<td>{{incident.description}}</td>
+					</tr>
+				  </tbody>
+				</table>
+		    </div>
+		  <!-- END TABLE -->  
+		  </div>
+		  <div class="card-footer text-muted">
+		    2 days ago
+		  </div>
+	</div>
+	<!-- END CARD -->
+	
+	
+</div>

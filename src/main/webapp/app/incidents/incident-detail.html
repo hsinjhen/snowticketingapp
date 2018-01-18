@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- BREADCRUMBS -->
+	<nav aria-label="breadcrumb" role="navigation">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#/incidents">Incidents</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Incident Details</li>
+		</ol>
+	</nav>
+	<!-- END BREADCRUMBS -->
+	
+	<!-- CARD -->
+	<div class="card mb-3">
+		  <div class="card-header">
+		    <span class="fa fa-list-ul"></span>
+           	Incident
+		  </div>
+		  
+		  <div class="card-body">
+		  	<div class="container">
+		  		<form>
+					<div class="form-group row">
+						<div class="col-sm-4" style="margin-right:111px; margin-top:5px;">
+							<label for="incidentNumber" class="col-sm-1.5 col-form-label col-form-label-sm">Number</label>
+							<input type="text" class="form-control form-control-sm" id="incidentNumber" value='{{vm.incident[0].inc_number}}' readonly>
+						</div>
+						
+						<div class="col-sm-4" style="margin-top:5px;">
+							<label for="dateOpened" class="col-sm-1.5 col-form-label col-form-label-sm">Opened</label>
+							<input type="text" class="form-control form-control-sm" id="dateOpened"value="{{vm.incident[0].created}}" readonly>
+						</div>
+					</div>	
+					<div class="form-group row">
+						<div class="col-sm-4" style="margin-right:111px">
+							<label for="incidentDomain" class="col-sm-1.5 col-form-label col-form-label-sm" style="margin-right:2px">Domain</label>
+							<input type="text" class="form-control form-control-sm" id="incidentDomain" value="{{vm.incident[0].category}}" readonly>
+						</div>
+						
+						<div class="col-sm-4">
+						<label for="dateClosed" class="col-sm-1.5 col-form-label col-form-label-sm" style="margin-right:8px">Closed</label>
+							<input type="text" class="form-control form-control-sm" id="dateClosed" value="{{vm.incident[0].closed}}" readonly>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-9">
+							<label for="incidentSubj" class="col-sm-1.5 col-form-label col-form-label-sm" style="margin-right:5px">Subject</label>
+							<input type="text" class="form-control form-control-sm" id="incidentSubj" value="{{vm.incident[0].short_desc}}" readonly>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-9">
+							<label for="shortDescription" class="col-sm-1.5 col-form-label col-form-label-sm" style="margin-right:22px">Short Description</label>
+							<textarea class="form-control form-control-sm" id="shortDescription" rows="5" value="{{vm.incident[0].description}}" readonly></textarea>
+						</div>
+						<button type="button" class="btn btn-primary btn-sm" style="width:120px;height:35px;margin-top:32px;" ng-click="vm.checkSolutions()">ACIP Solutions</button>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-9">
+							<label for="resolution" class="col-sm-1.5 col-form-label col-form-label-sm" style="margin-right:30px">ACIP Resolution</label>
+							<textarea class="form-control form-control-sm" id="resolution" rows="5" value="{{chosensolution.resolution}}"></textarea>
+						</div>
+					</div>
+					<button type="button" class="btn btn-success btn-sm" style="margin-left:-10px; margin-bottom:15px;" ng-click="vm.resolveTicket()">Resolve</button>	
+					<button type="button" class="btn btn-danger btn-sm"  style="margin-bottom:15px;" ng-click="vm.go('/incidents')">Cancel</button>
+				</form>
+		  	</div>
+		  </div>
+	</div>
+	<!-- END CARD -->
+	
+	
+</body>
+</html>
